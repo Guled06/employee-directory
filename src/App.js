@@ -1,6 +1,6 @@
 import React from 'react';
 import EmployeeCard from './components/EmployeeCard';
-import SearchForm from './components/SeachForm';
+import SearchForm from './components/SearchForm';
 import Wrapper from './components/Wrapper';
 import Col from './components/Col';
 import API from './utils/API';
@@ -12,14 +12,14 @@ class App extends React.Component {
   componentDidMount() {
     API.search().then((res) => {
       this.setState({
-        employees: res.data.results.map((event, i) => ({
-          firstName: event.name.first,
-            lastName: event.name.last,
-            picture: event.picture.large,
-            email: event.email,
-            phone: event.phone,
-            city: event.location.city,
-            key: i,
+        employees: res.data.results.map((event, key) => ({
+        firstName: event.name.first,
+        lastName: event.name.last,
+        picture: event.picture.large,
+        email: event.email,
+        phone: event.phone,
+        city: event.location.city,
+        key: key,
         })),
       });
     }).catch((err) => console.log(err));
@@ -54,7 +54,7 @@ class App extends React.Component {
   render() {
     return (
       <Wrapper>
-        <div className="container">
+        <div className="container" style={{ textAlign: 'center' }}>
           <div className="row">
             <Col size="md-4">
               <h1>Employee Directory</h1>
@@ -65,12 +65,13 @@ class App extends React.Component {
               />  
             </Col>
           </div>
+          <br />
           <div className="row">
             <Col size="md-12">
               <table className="table">
                 <thead>
                   <tr>
-                  <th>Photo</th>
+                  <th>Picture</th>
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Email</th>
@@ -78,6 +79,7 @@ class App extends React.Component {
                   <th>City</th>
                   </tr>
                 </thead>
+                <br />
                 {[...this.state.employees].map((item) => (
                   <EmployeeCard
                     picture={item.picture}
