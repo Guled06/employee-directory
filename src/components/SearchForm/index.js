@@ -17,7 +17,7 @@ function SearchForm(props) {
         <button onClick={props.handleFormSubmit} className="btn btn-primary">
           Search
         </button>
-        <button onClick={props.refreshPage} className="btn btn-primary ml-1">
+        <button onClick={props.refreshPage} className="btn btn-primary">
           Reset
         </button>
       </div>
