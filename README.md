@@ -14,6 +14,8 @@ GitHub Pages Deployed Link: https://guled06.github.io/employee-directory/
 
 # Screenshot Of Application:
 
+<img src="Docs/screenshotone.png">
+
 
 
 
